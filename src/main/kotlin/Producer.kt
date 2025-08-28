@@ -18,8 +18,8 @@ fun main() {
             // Create queue (durable to survive broker restarts)
             channel.queueDeclare(queueName, true, false, false, null)
 
-            // Send messages 1 to 100
-            for (i in 1..100) {
+            // Send messages 1 to 1000
+            for (i in 1..1000) {
                 val message = i.toString()
                 channel.basicPublish("", queueName, null, message.toByteArray())
                 println("Sent: $message")
